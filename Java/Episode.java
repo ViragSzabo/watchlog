@@ -29,7 +29,7 @@ public class Episode {
         return this.episodeNumber;
     }
 
-    public void setSeasonNumber(int episodeNumber) {
+    public void setEpisodeNumber(int episodeNumber) {
         this.episodeNumber = episodeNumber;
     }
 
@@ -37,7 +37,7 @@ public class Episode {
         return this.episodeTitle;
     }
 
-    public void setSeriesTitle(String episodeTitle) {
+    public void setEpisodeTitle(String episodeTitle) {
         this.episodeTitle = episodeTitle;
     }
 
@@ -88,15 +88,19 @@ public class Episode {
         return this.rewatchCount;
     }
 
-    public void setRewatchCount(int watchCount) {
-        this.rewatchCount = watchCount;
+    public void setRewatchCount(int rewatchCount) {
+        this.rewatchCount = rewatchCount;
     }
 
-    public boolean getWatched() {
+    public boolean isWatched() {
         return this.watched;
     }
 
     public void setWatched(boolean watched) {
         this.watched = watched;
+    }
+
+    public boolean isRewatched() {
+        return this.rewatchCount > 0;
     }
 }
