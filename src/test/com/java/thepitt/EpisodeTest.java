@@ -1,12 +1,11 @@
 package com.java.thepitt;
 
-import java.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class EpisodeTest {
+class EpisodeTest {
 
     private Episode e1;
 
