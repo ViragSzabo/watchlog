@@ -23,9 +23,8 @@ public class Player {
         return stats.getOrDefault(statName, 0);
     }
 
-    public void printStats() {
-        System.out.println("Stats for " + name);
-        stats.forEach((skill, value) -> System.out.println(skill + ": " + value));
+    public Map<Skills, Integer> getSkills() {
+        return stats;
     }
 
     public void compete(Player other) {

@@ -23,16 +23,20 @@ public class Series {
         this.title = title;
     }
 
-    public void addSeason(Season season) {
-        this.seasons.add(season);
+    public List<Season> getSeasons() {
+        return this.seasons;
     }
 
     public void removeSeason(Season season) {
         this.seasons.remove(season);
     }
 
-    public List<Season> getSeasons() {
-        return this.seasons;
+    public void addSeason(Season season) {
+        if (!this.seasons.contains(season)) {
+            this.seasons.add(season);
+        } else {
+            throw new IllegalArgumentException("Season already exists");
+        }
     }
 
     public String getGenre() {
@@ -56,14 +60,18 @@ public class Series {
     }
 
     public double calculateCompletionRate() {
-        return (double) calculateTotalWatchedEpisodes() / getTotalEpisodes() * 100;
+        int totalEpisodes = getTotalEpisodes();
+        if (totalEpisodes == 0) {
+            return 0.0;  // If there are no episodes, return 0.0
+        }
+        return Math.round((float) calculateTotalWatchedEpisodes() / totalEpisodes * 100);
     }
 
     public int calculateTotalWatchedEpisodes() {
         int totalWatchedEpisodes = 0;
         for (Season season : seasons) {
             for (Episode episode : season.getEpisodes()) {
-                if (episode.isWatched()) {
+                if (episode.getWatched()) {
                     totalWatchedEpisodes++;
                 }
             }

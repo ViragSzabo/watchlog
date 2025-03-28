@@ -3,28 +3,25 @@ package com.java.mangwathon;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class RRTournamentTest {
-    public RRTournament tournament;
-    public List<Player> players;
-
-    @BeforeEach
-    void setUp() {
-        this.tournament = new RRTournament();
-        players = List.of(
-                new Player("Geri", Map.of(Skills.Strength, 7, Skills.Cardio, 1, Skills.Stretching, 3, Skills.Magic, 4, Skills.Weapon, 4, Skills.Combat, 1)),
-                new Player("Dirk", Map.of(Skills.Strength, 1, Skills.Cardio, 1, Skills.Stretching, 1, Skills.Magic, 1, Skills.Weapon, 1, Skills.Combat, 1))
-        );
-    }
 
     @Test
     void testPlayersInitialization() {
         List<Player> testPlayers = RRTournament.getPlayers();
         assertNotNull(testPlayers);
-        assertEquals(6, testPlayers.size()); // Ensure all six players are added
+        assertEquals(6, testPlayers.size());
+        assertEquals("Geri", testPlayers.get(0).getName());
+        assertEquals("Dirk", testPlayers.get(1).getName());
+        assertEquals("Virag", testPlayers.get(2).getName());
+        assertEquals("Rina", testPlayers.get(3).getName());
+        assertEquals("Adel", testPlayers.get(4).getName());
+        assertEquals("Fanni", testPlayers.get(5).getName());
     }
 
     @Test
@@ -58,6 +55,53 @@ class RRTournamentTest {
 
         for (int i = 1; i < testPlayers.size(); i++) {
             assertTrue(testPlayers.get(i - 1).getTotalScore() >= testPlayers.get(i).getTotalScore());
+        }
+    }
+
+    @Test
+    void testGetPlayersReturnsNewInstances() {
+        List<Player> firstCall = RRTournament.getPlayers();
+        List<Player> secondCall = new ArrayList<>();
+        assertNotSame(firstCall, secondCall);
+    }
+
+    @Test
+    void testMainMethodExecution() {
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        PrintStream originalOut = System.out;
+        System.setOut(new PrintStream(outputStream));
+
+        RRTournament.main(new String[]{});
+
+        System.setOut(originalOut);
+
+        String output = outputStream.toString();
+        assertTrue(output.contains("🏆 Round Robin Tournament Begins!"));
+        assertTrue(output.contains("📊 FINAL STANDINGS:"));
+    }
+
+    void testEmptyPlayerList() {
+        List<Player> emptyList = new ArrayList<>();
+        assertEquals(0, emptyList.size());
+    }
+
+    @Test
+    void testAllPlayersSameScore() {
+        List<Player> equalPlayers = List.of(
+                new Player("A", Map.of(Skills.Strength, 5)),
+                new Player("B", Map.of(Skills.Strength, 5)),
+                new Player("C", Map.of(Skills.Strength, 5))
+        );
+
+        for (int i = 0; i < equalPlayers.size(); i++) {
+            for (int j = i + 1; j < equalPlayers.size(); j++) {
+                equalPlayers.get(i).compete(equalPlayers.get(j));
+            }
+        }
+
+        int firstScore = equalPlayers.get(0).getTotalScore();
+        for (Player player : equalPlayers) {
+            assertEquals(firstScore, player.getTotalScore());
         }
     }
 

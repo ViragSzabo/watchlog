@@ -93,12 +93,16 @@ public class Episode {
         this.rewatchCount = rewatchCount;
     }
 
-    public boolean isWatched() {
+    public boolean getWatched() {
         return this.watched;
     }
 
-    public void setWatched(boolean watched) {
-        this.watched = watched;
+    public void isWatched() {
+        this.watched = true;
+    }
+
+    public void setWatched() {
+        this.watched = false;
     }
 
     public boolean isRewatched() {

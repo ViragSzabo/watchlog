@@ -1,12 +1,10 @@
 package com.java.thepitt;
 
-import java.time.LocalDate;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.time.LocalDate;
 
 class EpisodeTest {
 
@@ -27,7 +25,7 @@ class EpisodeTest {
         assertEquals(50, e1.getDuration());
         assertEquals(0, e1.getWatchTime());
         assertEquals(0, e1.getRewatchCount());
-        assertFalse(e1.isWatched());
+        assertFalse(e1.getWatched());
         assertFalse(e1.isRewatched());
     }
 
@@ -41,8 +39,27 @@ class EpisodeTest {
         e1.setDuration(60);
         e1.setWatchTime(30);
         e1.setRewatchCount(2);
-        e1.setWatched(true);
-        assertTrue(e1.isWatched());
+        e1.setWatched();
+
+        e1.isWatched();
+        assertTrue(e1.getWatched());
+        assertTrue(e1.isRewatched());
+        assertEquals(2, e1.getRewatchCount());
+        assertEquals(30, e1.getWatchTime());
+        assertEquals(60, e1.getDuration());
+    }
+
+    @Test
+    public void testSetWatchTimeNegative() {
+        assertThrows(IllegalArgumentException.class, () -> e1.setWatchTime(-1), "Watch time cannot be negative.");
+    }
+
+    @Test
+    public void testIsRewatched() {
+        e1.setRewatchCount(0);
+        assertFalse(e1.isRewatched());
+
+        e1.setRewatchCount(1);
         assertTrue(e1.isRewatched());
     }
 }

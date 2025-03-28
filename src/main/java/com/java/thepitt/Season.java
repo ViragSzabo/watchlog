@@ -21,21 +21,34 @@ public class Season {
         this.seasonNumber = seasonNumber;
     }
 
-    public void addEpisode(Episode episode) {
-        this.episodes.add(episode);
-    }
-
-    public void removeEpisode(Episode episode) {
-        this.episodes.remove(episode);
-    }
-
     public List<Episode> getEpisodes() {
         return this.episodes;
     }
 
+    public void addEpisode(Episode episode) {
+        if (!this.episodes.contains(episode)) {
+            this.episodes.add(episode);
+        } else {
+            throw new IllegalArgumentException("Episode already exists in this season");
+        }
+    }
+
+    public void removeEpisode(Episode episode) {
+        if(this.episodes.contains(episode)) {
+            this.episodes.remove(episode);
+        } else {
+            throw new IllegalArgumentException("Episode does not exist in this season");
+        }
+    }
+
     public void displayEpisodes() {
-        for (Episode episode : episodes) {
-            System.out.println("S" + this.seasonNumber + "E" + episode.getEpisodeNumber() + ": " + episode.getEpisodeTitle());
+        for (int i = 0; i < episodes.size(); i++) {
+            Episode episode = episodes.get(i);
+            System.out.print("S" + this.seasonNumber + "E" + episode.getEpisodeNumber() + ": " + episode.getEpisodeTitle());
+
+            if (i < episodes.size() - 1) {
+                System.out.println();
+            }
         }
     }
 }
