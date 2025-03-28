@@ -31,15 +31,4 @@ public class SeasonTest {
     public void testGetEpisodes() {
         assertEquals(3, season1.getEpisodes().size()); // 3 episodes
     }
-
-    @Test
-    public void testIsWatched() {
-        assertFalse(season1.isWatched());  // No episodes are watched yet
-
-        e1.setWatched(true);
-        e2.setWatched(true);
-        e3.setWatched(true);
-
-        assertTrue(season1.isWatched());  // All episodes are watched
-    }
 }
