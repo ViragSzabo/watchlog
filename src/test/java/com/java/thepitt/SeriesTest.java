@@ -31,13 +31,4 @@ public class SeriesTest {
     public void testGetTotalEpisodes() {
         assertEquals(3, series.getTotalEpisodes());  // 3 episodes in total
     }
-
-    @Test
-    public void testGetTotalWatchTime() {
-        e1.setWatchTime(30);
-        e2.setWatchTime(40);
-        e3.setWatchTime(50);
-
-        assertEquals(120, series.calculateTotalWatchTime());  // 30 + 40 + 50
-    }
 }

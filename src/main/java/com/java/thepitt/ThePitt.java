@@ -39,11 +39,5 @@ public class ThePitt {
         s1.addEpisode(e15);
 
         s1.displayEpisodes();
-
-        // Calculations
-        System.out.println("Total Watch Time: " + s1.calculateTotalWatchTime() + " minutes");
-        System.out.println("Total Rewatch Count: " + s1.calculateTotalRewatchCount());
-        System.out.println("Average Watch Time per Episode: " + s1.calculateAverageWatchTime() + " minutes");
-        System.out.println("Average Rewatch Count per Episode: " + s1.calculateAverageRewatchCount());
     }
 }

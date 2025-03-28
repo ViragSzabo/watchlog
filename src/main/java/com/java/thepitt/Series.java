@@ -43,14 +43,6 @@ public class Series {
         this.genre = genre;
     }
 
-    public int calculateTotalWatchTime() {
-        int totalWatchTime = 0;
-        for (Season season : seasons) {
-            totalWatchTime += season.calculateTotalWatchTime();
-        }
-        return totalWatchTime;
-    }
-
     public int getTotalEpisodes() {
         int totalEpisodes = 0;
         for (Season season : seasons) {
