@@ -1,4 +1,4 @@
-package com.example.watchlog;
+package com.java.thepitt;
 
 import java.time.LocalDate;
 

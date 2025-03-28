@@ -1,3 +1,4 @@
+package com.java.thepitt;
 
 import java.*;
 import org.junit.jupiter.api.BeforeEach;
