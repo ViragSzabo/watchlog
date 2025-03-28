@@ -1,0 +1,76 @@
+#player-matches {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.match {
+    background: linear-gradient(145deg, #e6f1ff, #c7e0f0);
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.match:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.match .result {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.match strong {
+    font-weight: bold;
+    color: #007BFF;
+}
+
+.winner {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.draw {
+    color: #ffc107;
+    font-weight: bold;
+}
+
+.match .skills {
+    margin-top: 15px;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: normal;
+    color: #555;
+}
+
+.match .skills span {
+    display: inline-block;
+    width: 45%;
+}
+
+.skills ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#player-matches {
+    display: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+#player-matches h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
