@@ -3,7 +3,6 @@ package com.java.thepitt;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
-import java.util.Arrays;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class SeasonTest {
@@ -17,17 +16,19 @@ public class SeasonTest {
         e2 = new Episode(2, "Episode 2", LocalDate.of(2025, 1, 2), "Writer 2", "Director 2");
         e3 = new Episode(3, "Episode 3", LocalDate.of(2025, 1, 3), "Writer 3", "Director 3");
 
-        season1 = new Season(1, Arrays.asList(e1, e2, e3));
+        season1.addEpisode(e1);
+        season1.addEpisode(e2);
+        season1.addEpisode(e3);
     }
 
     @Test
     public void testGetSeasonNumber() {
-        assertEquals(1, season1.getSeasonNumber());
+        assertEquals(1, season1.getSeasonNumber()); // Season 1
     }
 
     @Test
     public void testGetTotalDuration() {
-        assertEquals(150, season1.getTotalDuration());  // 50 + 50 + 50
+        assertEquals(150, season1.calculateTotalWatchTime()); // 50 + 50 + 50
     }
 
     @Test
@@ -36,7 +37,7 @@ public class SeasonTest {
         e2.setWatchTime(40);
         e3.setWatchTime(50);
 
-        assertEquals(120, season1.getTotalWatchTime());  // 30 + 40 + 50
+        assertEquals(120, season1.calculateTotalWatchTime()); // 30 + 40 + 50
     }
 
     @Test

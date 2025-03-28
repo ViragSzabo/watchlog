@@ -1,16 +1,18 @@
 package com.java.thepitt;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Season {
 
     private String seasonNumber;
-
     private final List<Episode> episodes;
+    private boolean isWatched;
 
     public Season(String seasonNumber) {
         this.seasonNumber = seasonNumber;
         this.episodes = new ArrayList<>();
+        this.isWatched = false;
     }
 
     public String getSeasonNumber() {
@@ -31,6 +33,11 @@ public class Season {
 
     public List<Episode> getEpisodes() {
         return this.episodes;
+    }
+
+    public boolean isWatched() {
+        this.isWatched = true;
+        return this.isWatched;
     }
 
     public int calculateTotalWatchTime() {
