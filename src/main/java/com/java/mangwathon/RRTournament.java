@@ -25,7 +25,7 @@ public class RRTournament {
         }
     }
 
-    private static List<Player> getPlayers() {
+    public static List<Player> getPlayers() {
         return List.of(
                 new Player("Geri", Map.of(Skills.Strength, 7, Skills.Cardio, 1, Skills.Stretching, 3, Skills.Magic, 4, Skills.Weapon, 4, Skills.Combat, 1)),
                 new Player("Dirk", Map.of(Skills.Strength, 1, Skills.Cardio, 1, Skills.Stretching, 1, Skills.Magic, 1, Skills.Weapon, 1, Skills.Combat, 1)),
