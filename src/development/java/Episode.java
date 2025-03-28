@@ -1,3 +1,4 @@
+package com.example.watchlog;
 
 import java.time.LocalDate;
 
