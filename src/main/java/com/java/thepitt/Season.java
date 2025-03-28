@@ -36,32 +36,27 @@ public class Season {
     }
 
     public boolean isWatched() {
+        for (Episode episode : this.episodes) {
+            if (!episode.isWatched()) {
+                this.isWatched = false;
+                return this.isWatched;
+
+            }
+        }
         this.isWatched = true;
         return this.isWatched;
     }
 
     public int calculateTotalWatchTime() {
         int totalWatchTime = 0;
-        for (Episode episode : episodes) {
+        for (Episode episode : this.episodes) {
             totalWatchTime += episode.getWatchTime();
         }
         return totalWatchTime;
     }
 
-    public int calculateTotalRewatchCount() {
-        int totalRewatchCount = 0;
-        for (Episode episode : episodes) {
-            totalRewatchCount += episode.getRewatchCount();
-        }
-        return totalRewatchCount;
-    }
-
     public double calculateAverageWatchTime() {
-        return calculateTotalWatchTime() / episodes.size();
-    }
-
-    public double calculateAverageRewatchCount() {
-        return calculateTotalRewatchCount() / episodes.size();
+        return calculateTotalWatchTime() / this.episodes.size();
     }
 
     public void displayEpisodes() {

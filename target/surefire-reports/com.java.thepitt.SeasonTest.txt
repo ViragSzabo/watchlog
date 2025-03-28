@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: com.java.thepitt.SeasonTest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.113 s <<< FAILURE! - in com.java.thepitt.SeasonTest
+com.java.thepitt.SeasonTest.testGetTotalDuration  Time elapsed: 0.012 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <150> but was: <0>
+	at com.java.thepitt.SeasonTest.testGetTotalDuration(SeasonTest.java:37)
+

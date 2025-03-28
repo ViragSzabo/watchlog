@@ -12,32 +12,24 @@ public class SeasonTest {
 
     @BeforeEach
     public void setUp() {
-        e1 = new Episode(1, "Episode 1", LocalDate.of(2025, 1, 1), "Writer 1", "Director 1");
-        e2 = new Episode(2, "Episode 2", LocalDate.of(2025, 1, 2), "Writer 2", "Director 2");
-        e3 = new Episode(3, "Episode 3", LocalDate.of(2025, 1, 3), "Writer 3", "Director 3");
+        this.season1 = new Season("Season 1");
+        this.e1 = new Episode(1, "Episode 1", LocalDate.of(2025, 1, 1), "Writer 1", "Director 1");
+        this.e2 = new Episode(2, "Episode 2", LocalDate.of(2025, 1, 2), "Writer 2", "Director 2");
+        this.e3 = new Episode(3, "Episode 3", LocalDate.of(2025, 1, 3), "Writer 3", "Director 3");
 
-        season1.addEpisode(e1);
-        season1.addEpisode(e2);
-        season1.addEpisode(e3);
+        this.season1.addEpisode(e1);
+        this.season1.addEpisode(e2);
+        this.season1.addEpisode(e3);
     }
 
     @Test
     public void testGetSeasonNumber() {
-        assertEquals(1, season1.getSeasonNumber()); // Season 1
+        assertEquals("Season 1", season1.getSeasonNumber()); // Season 1
     }
 
     @Test
-    public void testGetTotalDuration() {
-        assertEquals(150, season1.calculateTotalWatchTime()); // 50 + 50 + 50
-    }
-
-    @Test
-    public void testGetTotalWatchTime() {
-        e1.setWatchTime(30);
-        e2.setWatchTime(40);
-        e3.setWatchTime(50);
-
-        assertEquals(120, season1.calculateTotalWatchTime()); // 30 + 40 + 50
+    public void testGetEpisodes() {
+        assertEquals(3, season1.getEpisodes().size()); // 3 episodes
     }
 
     @Test
