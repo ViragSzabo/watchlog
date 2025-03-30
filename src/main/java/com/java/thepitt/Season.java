@@ -40,15 +40,4 @@ public class Season {
             throw new IllegalArgumentException("Episode does not exist in this season");
         }
     }
-
-    public void displayEpisodes() {
-        for (int i = 0; i < episodes.size(); i++) {
-            Episode episode = episodes.get(i);
-            System.out.print("S" + this.seasonNumber + "E" + episode.getEpisodeNumber() + ": " + episode.getEpisodeTitle());
-
-            if (i < episodes.size() - 1) {
-                System.out.println();
-            }
-        }
-    }
 }
