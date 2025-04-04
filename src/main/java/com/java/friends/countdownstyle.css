@@ -1,0 +1,96 @@
+body {
+    background: linear-gradient(135deg, #c8ddd1, #ecf0f1);
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    margin: 0;
+}
+
+.container {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    text-align: center;
+    opacity: 0;
+    animation: fadeIn 2s ease forwards, float 3s ease-in-out infinite;
+}
+
+h1 {
+    color: #3498db;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+#countdown span {
+    transition: all 0.3s ease-in-out;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+#popup {
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    z-index: 10;
+    font-size: 1.4rem;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+}
+
+#popup.show {
+    opacity: 1;
+}
+
+#music-controls {
+    margin-top: 20px;
+}
+
+#music-controls button {
+    margin: 0 5px;
+    padding: 10px 15px;
+    font-size: 1.2rem;
+    border: none;
+    background-color: #3B88C3;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#lyrics-box {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    font-size: 1.2rem;
+    color: #000000;
+}
+
+@media screen and (max-width: 600px) {
+    .container {
+        padding: 20px;
+        font-size: 1rem;
+    }
+    #popup {
+        width: 90%;
+    }
+}
