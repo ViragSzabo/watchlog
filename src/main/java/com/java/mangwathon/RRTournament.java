@@ -36,13 +36,13 @@ public class RRTournament {
 
     public static List<Player> getPlayers() {
         return List.of(
-                new Player("Geri", Map.of(Skills.Strength, 7, Skills.Cardio, 1, Skills.Stretching, 3, Skills.Magic, 4, Skills.Weapon, 4, Skills.Combat, 1)),
-                new Player("Dirk", Map.of(Skills.Strength, 1, Skills.Cardio, 1, Skills.Stretching, 1, Skills.Magic, 1, Skills.Weapon, 1, Skills.Combat, 1)),
-                new Player("Virag", Map.of(Skills.Strength, 4, Skills.Cardio, 0, Skills.Stretching, 3, Skills.Magic, 1, Skills.Weapon, 0, Skills.Combat, 0)),
-                new Player("Rina", Map.of(Skills.Strength, 2, Skills.Cardio, 0, Skills.Stretching, 0, Skills.Magic, 3, Skills.Weapon, 0, Skills.Combat, 0)),
-                new Player("Adel", Map.of(Skills.Strength, 2, Skills.Cardio, 5, Skills.Stretching, 0, Skills.Magic, 5, Skills.Weapon, 0, Skills.Combat, 2)),
-                new Player("Fanni", Map.of(Skills.Strength, 6, Skills.Cardio, 5, Skills.Stretching, 2, Skills.Magic, 4, Skills.Weapon, 3, Skills.Combat, 0)),
-                new Player("Mithrillion", Map.of(Skills.Strength, 5, Skills.Cardio, 6, Skills.Stretching, 0, Skills.Magic, 0, Skills.Weapon, 0, Skills.Combat, 0))
+                new Player("Geri", Map.of(Skills.STRENGTH, 7, Skills.CARDIO, 1, Skills.STRETCHING, 3, Skills.MAGIC, 4, Skills.WEAPON, 4, Skills.COMBAT, 1)),
+                new Player("Dirk", Map.of(Skills.STRENGTH, 1, Skills.CARDIO, 1, Skills.STRETCHING, 1, Skills.MAGIC, 1, Skills.WEAPON, 1, Skills.COMBAT, 1)),
+                new Player("Virag", Map.of(Skills.STRENGTH, 4, Skills.CARDIO, 0, Skills.STRETCHING, 3, Skills.MAGIC, 1, Skills.WEAPON, 0, Skills.COMBAT, 0)),
+                new Player("Rina", Map.of(Skills.STRENGTH, 2, Skills.CARDIO, 0, Skills.STRETCHING, 0, Skills.MAGIC, 3, Skills.WEAPON, 0, Skills.COMBAT, 0)),
+                new Player("Adel", Map.of(Skills.STRENGTH, 2, Skills.CARDIO, 5, Skills.STRETCHING, 0, Skills.MAGIC, 5, Skills.WEAPON, 0, Skills.COMBAT, 2)),
+                new Player("Fanni", Map.of(Skills.STRENGTH, 6, Skills.CARDIO, 5, Skills.STRETCHING, 2, Skills.MAGIC, 4, Skills.WEAPON, 3, Skills.COMBAT, 0)),
+                new Player("Mithrillion", Map.of(Skills.STRENGTH, 5, Skills.CARDIO, 6, Skills.STRETCHING, 0, Skills.MAGIC, 0, Skills.WEAPON, 0, Skills.COMBAT, 0))
         );
     }
 }

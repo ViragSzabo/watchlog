@@ -9,10 +9,12 @@ public class Player {
     private int wins = 0;
     private int losses = 0;
     private int ties = 0;
+    private static final int WIN_POINTS = 3;
+    private static final int TIES_POINTS = 1;
 
     public Player(String name, Map<Skills, Integer> stats) {
-        this.name = name;
-        this.stats = new HashMap<>(stats);
+        this.name = Objects.requireNonNull(name, "Player name cannot be null.");
+        this.stats = Collections.unmodifiableMap(Objects.requireNonNull(stats, "Stats cannot be null."));
     }
 
     public String getName() {
@@ -28,6 +30,8 @@ public class Player {
     }
 
     public void compete(Player other) {
+        if (other == null) throw new IllegalArgumentException("Opponent cannot be null");
+
         int thisWins = 0, otherWins = 0;
 
         System.out.println("\n⚔️ Match: " + name + " vs " + other.getName());
@@ -58,10 +62,11 @@ public class Player {
     }
 
     public int getTotalScore() {
-        return (wins * 3) + (ties);  // Wins = 3 points, Ties = 1 point
+        return (wins * WIN_POINTS) + (ties * TIES_POINTS);
     }
 
     public void printResults() {
-        System.out.println(name + " | Wins: " + wins + " | Losses: " + losses + " | Ties: " + ties + " | Total Points: " + getTotalScore());
+        System.out.printf("%s | Wins: %d | Losses: %d | Ties: %d | Total Points: %d%n",
+                name, wins, losses, ties, getTotalScore());
     }
 }

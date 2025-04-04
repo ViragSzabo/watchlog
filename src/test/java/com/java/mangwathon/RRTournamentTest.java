@@ -1,6 +1,5 @@
 package com.java.mangwathon;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
@@ -15,7 +14,7 @@ class RRTournamentTest {
     void testPlayersInitialization() {
         List<Player> testPlayers = RRTournament.getPlayers();
         assertNotNull(testPlayers);
-        assertEquals(6, testPlayers.size());
+        assertEquals(7, testPlayers.size());
         assertEquals("Geri", testPlayers.get(0).getName());
         assertEquals("Dirk", testPlayers.get(1).getName());
         assertEquals("Virag", testPlayers.get(2).getName());
@@ -80,17 +79,21 @@ class RRTournamentTest {
         assertTrue(output.contains("📊 FINAL STANDINGS:"));
     }
 
+    @Test
     void testEmptyPlayerList() {
         List<Player> emptyList = new ArrayList<>();
+        Player unknownPlayer = new Player("Jane Doe", Map.of(Skills.STRENGTH, 1, Skills.CARDIO, 1, Skills.STRETCHING, 1, Skills.MAGIC, 1, Skills.WEAPON, 1, Skills.COMBAT, 1));
+        emptyList.add(unknownPlayer);
+        emptyList.remove(unknownPlayer);
         assertEquals(0, emptyList.size());
     }
 
     @Test
     void testAllPlayersSameScore() {
         List<Player> equalPlayers = List.of(
-                new Player("A", Map.of(Skills.Strength, 5)),
-                new Player("B", Map.of(Skills.Strength, 5)),
-                new Player("C", Map.of(Skills.Strength, 5))
+                new Player("A", Map.of(Skills.STRENGTH, 5)),
+                new Player("B", Map.of(Skills.STRENGTH, 5)),
+                new Player("C", Map.of(Skills.STRENGTH, 5))
         );
 
         for (int i = 0; i < equalPlayers.size(); i++) {
@@ -107,9 +110,9 @@ class RRTournamentTest {
 
     @Test
     void testSinglePlayerTournament() {
-        List<Player> singlePlayerList = List.of(new Player("Solo", Map.of(Skills.Strength, 10)));
+        List<Player> singlePlayerList = List.of(new Player("Solo", Map.of(Skills.STRENGTH, 10)));
 
         assertEquals(1, singlePlayerList.size());
-        assertEquals(0, singlePlayerList.get(0).getTotalScore()); // No matches should mean 0 points
+        assertEquals(0, singlePlayerList.get(0).getTotalScore());
     }
 }

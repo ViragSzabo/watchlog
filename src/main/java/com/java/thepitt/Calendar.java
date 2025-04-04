@@ -82,24 +82,12 @@ public class Calendar {
                         .append(" - Total Duration: ")
                         .append(entry.getKey().getDuration() * entry.getValue())
                         .append(" minutes\n"));
-
         return result;
     }
 
     /** Gets the total number of episodes watched. */
     public int getTotalEpisodesWatched() {
         return calendar.values().stream().mapToInt(List::size).sum();
-    }
-
-    /** Gets the most watched episode. */
-    public Episode getMostWatchedEpisode() {
-        return calendar.values().stream()
-                .flatMap(List::stream)
-                .collect(Collectors.groupingBy(e -> e, Collectors.counting()))
-                .entrySet().stream()
-                .max(Comparator.comparingLong(Map.Entry::getValue))
-                .map(Map.Entry::getKey)
-                .orElse(null);
     }
 
     /** Gets the number of episodes watched per month. */

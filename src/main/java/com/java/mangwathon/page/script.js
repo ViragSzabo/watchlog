@@ -11,69 +11,61 @@ const players = [
 let currentlyOpenPlayer = null;
 
 function compete(player1, player2) {
-    const skillNames = Object.keys(player1.skills);
-    let score1 = 0;
-    let score2 = 0;
+    let score1 = 0, score2 = 0;
 
-    skillNames.forEach(skill => {
-        const p1Skill = player1.skills[skill];
-        const p2Skill = player2.skills[skill];
-        if (p1Skill > p2Skill) {
-            score1++;
-        } else if (p1Skill < p2Skill) {
-            score2++;
-        }
+    Object.keys(player1.skills).forEach(skill => {
+        if (player1.skills[skill] > player2.skills[skill]) score1++;
+        else if (player1.skills[skill] < player2.skills[skill]) score2++;
     });
 
-    player1.totalScore += score1;
-    player2.totalScore += score2;
+    let winner = null;
+    if (score1 > score2) {
+        winner = player1.name;
+        player1.totalScore += 3;
+    } else if (score2 > score1) {
+        winner = player2.name;
+        player2.totalScore += 3;
+    } else {
+        winner = "Draw";
+        player1.totalScore += 1;
+        player2.totalScore += 1;
+    }
 
-    const matchResult = ` 
-    <div class="match">
-        <strong>${player1.name} vs ${player2.name}</strong><br>
-        <div class="skills">
-            <div><strong>${player1.name} Skills:</strong></div>
-            <ul>
-                ${Object.entries(player1.skills).map(([skill, value]) =>
-        `<li><strong>${skill}:</strong> ${value}</li>`
-    ).join('')}
-            </ul>
-            <div><strong>${player2.name} Skills:</strong></div>
-            <ul>
-                ${Object.entries(player2.skills).map(([skill, value]) =>
-        `<li><strong>${skill}:</strong> ${value}</li>`
-    ).join('')}
-            </ul>
-        </div>
-        <div class="result">
-            <strong>Winner:</strong> 
-            ${score1 > score2 ? `<span class="winner">${player1.name}</span>` :
-        score1 < score2 ? `<span class="winner">${player2.name}</span>` :
-            `<span class="draw">Draw</span>`}
-        </div>
-    </div>
-`;
+    const matchResult = {
+        player1: player1.name,
+        player2: player2.name,
+        score1,
+        score2,
+        winner
+    };
 
     player1.matches.push(matchResult);
     player2.matches.push(matchResult);
+}
+
+function displayMatchResult(match) {
+    return `<div class="match">
+            <strong>${match.player1} vs ${match.player2}</strong><br>
+            <div class="result">
+                <strong>Score:</strong> ${match.score1} - ${match.score2}<br>
+                <strong>Winner:</strong> ${match.winner}
+            </div>
+        </div>`;
 }
 
 function togglePlayerMatches(playerName) {
     const player = players.find(p => p.name === playerName);
     const playerMatchesSection = document.getElementById('player-matches');
 
-    // If the clicked player's matches are already open, close them
     if (currentlyOpenPlayer === playerName) {
         playerMatchesSection.style.display = 'none';
         currentlyOpenPlayer = null;
     } else {
-        // If another player's matches are open, close them first
         if (currentlyOpenPlayer) {
             document.getElementById('player-matches').style.display = 'none';
         }
 
-        // Open the selected player's matches
-        const matchList = player.matches.join('');
+        const matchList = player.matches.map(displayMatchResult).join('');
         playerMatchesSection.innerHTML = `
             <h3>Matches for ${player.name}:</h3>
             ${matchList}
@@ -84,6 +76,22 @@ function togglePlayerMatches(playerName) {
 }
 
 function runTournament() {
+    players.forEach(player => {
+        const row = standingsTableBody.insertRow();
+        const cellName = row.insertCell(0);
+        const cellScore = row.insertCell(1);
+
+        // Add emoji and make it clickable
+        cellName.innerHTML = `📂 <span style="cursor: pointer; text-decoration: underline;">${player.name}</span>`;
+        cellScore.textContent = player.totalScore;
+
+        cellName.onclick = function() {
+            togglePlayerMatches(player.name);
+        };
+    });
+}
+
+function runTournament2() {
     console.log("Tournament is starting...");
 
     // Run the matches and calculate the scores
