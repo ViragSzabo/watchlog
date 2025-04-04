@@ -23,14 +23,19 @@ h1 {
     color: #3498db;
 }
 
+#countdown span {
+    transition: all 0.3s ease-in-out;
+}
+
+#countdown {
+    font-size: 40px;
+    margin: 40px;
+}
+
 @keyframes fadeIn {
     to {
         opacity: 1;
     }
-}
-
-#countdown span {
-    transition: all 0.3s ease-in-out;
 }
 
 @keyframes float {
@@ -60,7 +65,7 @@ h1 {
 }
 
 #music-controls {
-    margin-top: 20px;
+    margin-top: 25px;
 }
 
 #music-controls button {
@@ -68,21 +73,14 @@ h1 {
     padding: 10px 15px;
     font-size: 1.2rem;
     border: none;
-    background-color: #3B88C3;
+    background-color: #3498db;
     color: white;
     border-radius: 8px;
     cursor: pointer;
-    transition: background 0.3s;
 }
 
-#lyrics-box {
-    margin-top: 20px;
-    padding: 15px;
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    font-size: 1.2rem;
-    color: #000000;
+#volume-box {
+    margin-top: 25px;
 }
 
 @media screen and (max-width: 600px) {
