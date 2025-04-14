@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Watchlog</title>
+    <style>
+        #myChart {
+            max-width: 600px;
+            margin: 50px auto;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Charts for Episodes per Month and Peak Watch Days -->
+<h2>Episodes Watched per Month</h2>
+<canvas id="episodesPerMonthChart" width="400" height="200"></canvas>
+
+<h2>Peak Watch Days</h2>
+<canvas id="peakWatchDaysChart" width="400" height="200"></canvas>
+
+<script>
+    // Fetch and render data for Episodes Watched per Month
+    fetch('/api/episodes-per-month')
+        .then(response => response.json())
+        .then(data => {
+            const months = Object.keys(data);
+            const episodes = Object.values(data);
+
+            new Chart(document.getElementById("peakWatchDaysChart"), {
+                type: 'bar',
+                data: {
+                    labels: ['2025-03-01', '2025-03-02', '2025-03-03'],  // Example labels (dates)
+                    datasets: [{
+                        label: 'Episodes Watched',
+                        data: [5, 3, 7],  // Example data (episode count)
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                }
+            });
+
+        })
+        .catch(error => console.error('Error fetching data for Episodes per Month:', error));
+
+    // Fetch and render data for Peak Watch Days
+    fetch('/api/peak-watch-days')
+        .then(response => response.json())
+        .then(data => {
+            const labels = Object.keys(data);
+            const values = Object.values(data);
+
+            new Chart(document.getElementById("peakWatchDaysChart"), {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Episodes Watched',
+                        data: values,
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                }
+            });
+        })
+        .catch(error => console.error('Error fetching data for Peak Watch Days:', error));
+</script>
+</body>
+</html>

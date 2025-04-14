@@ -48,9 +48,7 @@ public class Calendar {
 
     /** Calculates the average watch time per day. */
     public double getAverageWatchTimePerDay() {
-        int totalWatchTime = getTotalWatchTime();
-        int daysCount = calendar.size();
-        return daysCount > 0 ? (double) totalWatchTime / daysCount : 0;
+        return !calendar.isEmpty() ? (double) getTotalWatchTime() / calendar.size() : 0;
     }
 
     /** Gets the total watch time for a given month and year. */
@@ -106,9 +104,15 @@ public class Calendar {
         for (Map.Entry<LocalDate, List<Episode>> entry : calendar.entrySet()) {
             peakWatchDays.put(entry.getKey(), entry.getValue().size());
         }
-        return peakWatchDays.entrySet().stream()
-                .sorted(Map.Entry.<LocalDate, Integer>comparingByValue().reversed())
+
+        return peakWatchDays.entrySet()
+                .stream()
+                .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
                 .limit(5)
-                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+                .collect(Collectors.toMap(
+                        Map.Entry::getKey,
+                        Map.Entry::getValue,
+                        (e1, e2) -> e1,
+                        LinkedHashMap::new));
     }
 }

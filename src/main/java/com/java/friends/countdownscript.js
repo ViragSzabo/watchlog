@@ -42,7 +42,6 @@ const playlist = ['music/getawaycar.mp3', 'music/foreveralways.mp3', 'music/pape
                             'music/readytorun.mp3', 'music/whatafeeling.mp3', 'music/oial.mp3'];
 let currentTrack = 0;
 const audio = document.getElementById("bg-music");
-const lyricElement = document.getElementById('current-lyric');
 
 document.getElementById("play").addEventListener("click", () => {
     audio.play();

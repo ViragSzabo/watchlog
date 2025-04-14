@@ -65,6 +65,12 @@ public class ThePitt {
         calendar.addToCalendar(LocalDate.of(2025, 3, 28), 8, 9, 10, 11, 12, 13, 13);
         calendar.addToCalendar(LocalDate.of(2025, 3, 31), 10, 11, 12, 13);
         calendar.addToCalendar(LocalDate.of(2025, 4, 3), 13, 14, 14, 14);
+        calendar.addToCalendar(LocalDate.of(2025, 4, 6), 14, 1);
+        calendar.addToCalendar(LocalDate.of(2025, 4, 7), 2, 3, 4, 5);
+        calendar.addToCalendar(LocalDate.of(2025, 4, 9), 6, 7, 8, 9, 10, 11);
+        calendar.addToCalendar(LocalDate.of(2025, 4, 10), 12, 13);
+        calendar.addToCalendar(LocalDate.of(2025, 4, 11), 14, 15);
+        calendar.addToCalendar(LocalDate.of(2025, 4, 13), 15, 15);
     }
 
     public Calendar getCalendar() { return calendar; }
