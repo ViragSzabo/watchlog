@@ -1,10 +1,10 @@
 package com.java.thepitt;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Series {
-
     private String title;
     private final List<Season> seasons;
     private String genre;

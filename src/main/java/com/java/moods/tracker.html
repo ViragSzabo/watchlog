@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Mood Tracker</h1>
+<div class="mood-buttons">
+    <button class="mood-btn happy" onclick="logMood('😊')">Happy</button>
+    <button class="mood-btn sad" onclick="logMood('😢')">Sad</button>
+    <button class="mood-btn tired" onclick="logMood('😴')">Tired</button>
+    <button class="mood-btn angry" onclick="logMood('😠')">Angry</button>
+    <button class="mood-btn chill" onclick="logMood('😎')">Chill</button>
+    <button class="mood-btn excited" onclick="logMood('🤩')">Excited</button>
+    <button class="mood-btn relaxed" onclick="logMood('😌')">Relaxed</button>
+    <button class="mood-btn bored" onclick="logMood('😒')">Bored</button>
+</div>
+<h2>Your Moods Over the Week:</h2>
+<canvas id="moodChart" width="400" height="200"></canvas>
+<script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>

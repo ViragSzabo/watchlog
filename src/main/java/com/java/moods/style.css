@@ -1,0 +1,65 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+    background-color: #f4f4f9;
+}
+
+h1 {
+    color: #2d3e50;
+}
+
+.mood-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.mood-btn {
+    font-size: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    transition: background-color 0.3s;
+    margin: 5px;
+}
+
+.mood-btn:hover {
+    opacity: 0.8;
+}
+
+.happy {
+    background-color: #ff6f61; /* Vibrant Red */
+}
+
+.sad {
+    background-color: #ff7f50; /* Coral */
+}
+
+.tired {
+    background-color: #ff8c00; /* Deep Orange */
+}
+
+.angry {
+    background-color: #d32f2f; /* Dark Red */
+}
+
+.chill {
+    background-color: #4caf50; /* Green */
+}
+
+.excited {
+    background-color: #ff5722; /* Deep Orange */
+}
+
+.relaxed {
+    background-color: #8e44ad; /* Purple */
+}
+
+.bored {
+    background-color: #2980b9; /* Blue */
+}

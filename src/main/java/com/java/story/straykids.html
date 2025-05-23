@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Story - Stray Kids Adventure</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 50px;
+        }
+        .scene {
+            display: none;
+            margin-top: 20px;
+        }
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #ff5722;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 5px;
+            margin: 5px;
+        }
+        button:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Stray Kids Adventure - The Abandoned Mansion</h1>
+<div id="scene-1" class="scene fade-in">
+    <p>You find yourself in front of an eerie, abandoned mansion. The door creaks in the wind. What do you do?</p>
+    <div class="buttons">
+        <button onclick="nextScene('scene-2')">Enter the mansion</button>
+        <button onclick="nextScene('scene-3')">Walk away</button>
+    </div>
+</div>
+
+<div id="scene-2" class="scene fade-in">
+    <p>You step inside. The air is cold, and the floorboards creak under your feet. A soft glow is coming from a room ahead. Do you approach it?</p>
+    <div class="buttons">
+        <button onclick="nextScene('scene-4')">Approach the glowing light</button>
+        <button onclick="nextScene('scene-5')">Stay where you are</button>
+    </div>
+</div>
+
+<div id="scene-3" class="scene fade-in">
+    <p>You decide it's too dangerous and walk away. As you turn back, you hear a voice calling your name...</p>
+    <div class="buttons">
+        <button onclick="nextScene('scene-6')">Turn around</button>
+        <button onclick="nextScene('scene-7')">Ignore it and leave</button>
+    </div>
+</div>
+<div id="scene-4" class="scene fade-in">
+    <p>As you approach the glowing light, you see none other than Hyunjin standing in the middle of the room. He smiles at you, "Welcome to the mansion!"</p>
+    <div class="buttons">
+        <button onclick="nextScene('scene-8')">Talk to Hyunjin</button>
+        <button onclick="nextScene('scene-9')">Look for another exit</button>
+    </div>
+</div>
+<div id="scene-5" class="scene fade-in">
+    <p>Something feels off. You start backing away, but the room seems to stretch endlessly...</p>
+    <div class="buttons">
+        <button onclick="nextScene('scene-10')">Run towards the door</button>
+        <button onclick="nextScene('scene-11')">Look for clues</button>
+    </div>
+</div>
+
+<script>
+    function nextScene(sceneId) {
+        const allScenes = document.querySelectorAll('.scene');
+        allScenes.forEach(scene => scene.style.display = 'none');
+        const scene = document.getElementById(sceneId);
+        scene.style.display = 'block';
+    }
+    nextScene('scene-1');
+</script>
+</body>
+</html>
