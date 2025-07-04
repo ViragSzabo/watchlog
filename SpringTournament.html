@@ -13,6 +13,11 @@
 <header>
     <h1>🏆 Spring Tournament 🏆</h1>
 </header>
+<div id="button-container">
+    <button id="show-players">Show Player Stats</button>
+    <button id="switch-to-sprint">Switch to Sprint Tournament</button>
+    <button id="switch-to-summer">Switch to Summer Tournament</button>
+</div>
 <section id="final-standings">
     <h2>📊 Final Standings</h2>
     <table id="standings">
@@ -23,13 +28,12 @@
         </tr>
         </thead>
         <tbody>
-        <!-- Standings will be dynamically populated here -->
+            </div>
         </tbody>
     </table>
 </section>
-<section id="player-matches">
-    <!-- Matches for clicked player will appear here -->
-</section>
+<section id="player-matches" style="display:none; max-width: 600px; margin: 20px auto; text-align: left;"></section>
+<section id="player-stats" style="display:none; max-width: 600px; margin: 20px auto; text-align: left;"></section>
 <script src="src/main/java/com/java/mangwathon/page/script.js"></script>
 </body>
 </html>

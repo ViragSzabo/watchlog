@@ -69,4 +69,20 @@ public class Player {
         System.out.printf("%s | Wins: %d | Losses: %d | Ties: %d | Total Points: %d%n",
                 name, wins, losses, ties, getTotalScore());
     }
+
+    public void printStats() {
+        System.out.println("👤 " + name + "'s Statistics:");
+        for (Map.Entry<Skills, Integer> entry : stats.entrySet()) {
+            System.out.println(" - " + entry.getKey() + ": " + entry.getValue());
+        }
+        System.out.println("Total Score: " + getTotalScore());
+    }
+
+    public String getSkillsSummary() {
+        StringBuilder summary = new StringBuilder();
+        for (Map.Entry<Skills, Integer> entry : stats.entrySet()) {
+            summary.append(entry.getKey()).append(": ").append(entry.getValue()).append(" | ");
+        }
+        return summary.toString();
+    }
 }

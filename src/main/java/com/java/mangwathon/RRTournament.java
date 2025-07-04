@@ -3,22 +3,35 @@ package com.java.mangwathon;
 import java.util.*;
 
 public class RRTournament {
+    public static List<Player> players = new ArrayList<>(getPlayers());
 
     public static void main(String[] args) {
-        List<Player> players = new ArrayList<>(getPlayers());
 
-        System.out.println("🏆 Round Robin Tournament Begins!\n");
+        System.out.println("🏆 2025 Tournament!\n");
+        competition();
+        finalMatchInfo();
+    }
 
+    private static void competition() {
         for (int i = 0; i < players.size(); i++) {
             for (int j = i + 1; j < players.size(); j++) {
                 Player player1 = players.get(i);
                 Player player2 = players.get(j);
+
                 displayMatchInfo(player1, player2);
-                player1.compete(player2);
-                System.out.println();
+                player1.compete(player2);  // Run match logic
+
+                // Show updated stats
+                System.out.println("\nUpdated Player Stats:");
+                player1.printStats();
+                player2.printStats();
+
+                System.out.println("---------------------------\n");
             }
         }
+    }
 
+    private static void finalMatchInfo() {
         System.out.println("\n📊 FINAL STANDINGS:");
         players.sort(Comparator.comparingInt(Player::getTotalScore).reversed());
         for (Player player : players) {
@@ -26,7 +39,7 @@ public class RRTournament {
         }
     }
 
-    public static void displayMatchInfo(Player player1, Player player2) {
+    private static void displayMatchInfo(Player player1, Player player2) {
         System.out.println("🔥 Match: " + player1.getName() + " vs " + player2.getName());
         System.out.println("Skills in competition: ");
         System.out.println(player1.getName() + "'s Skills: " + player1.getSkills());
@@ -34,7 +47,7 @@ public class RRTournament {
         System.out.println("Let the competition begin!\n");
     }
 
-    public static List<Player> getPlayers() {
+    private static List<Player> getPlayers() {
         return List.of(
                 new Player("Geri", Map.of(Skills.STRENGTH, 7, Skills.CARDIO, 1, Skills.STRETCHING, 3, Skills.MAGIC, 4, Skills.WEAPON, 4, Skills.COMBAT, 1)),
                 new Player("Dirk", Map.of(Skills.STRENGTH, 1, Skills.CARDIO, 1, Skills.STRETCHING, 1, Skills.MAGIC, 1, Skills.WEAPON, 1, Skills.COMBAT, 1)),

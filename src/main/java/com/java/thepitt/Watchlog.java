@@ -1,5 +1,8 @@
 package com.java.thepitt;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.util.*;
@@ -8,20 +11,25 @@ public class Watchlog {
     public static final ThePitt thePitt = new ThePitt();
     public static final GeorgieMandy georgieMandy = new GeorgieMandy();
     public static final TheDevilsPlan theDevilsPlan = new TheDevilsPlan();
+    private static final Logger log = LoggerFactory.getLogger(Watchlog.class);
 
     public static void main(String[] args) {
-        System.out.println("Starting main...");
+        try {
+            System.out.println("Starting main...");
 
-        showTheDevilsPlan();
-        showGeorgieMandy();
-        showThePitt();
+            showTheDevilsPlan();
+            showGeorgieMandy();
+            showThePitt();
 
-        System.out.println("Listing contestants...");
-        for(Contestants person : theDevilsPlan.getContestants()) {
-            System.out.println(person.getName() + " is in " + person.getSeason());
+            System.out.println("Listing contestants...");
+            for (Contestants person : theDevilsPlan.getContestants()) {
+                System.out.println(person.getName() + " is in " + person.getSeason());
+            }
+
+            System.out.println("Done.");
+        } catch (Exception e) {
+            log.error(e.getMessage());
         }
-
-        System.out.println("Done.");
     }
 
     public static void showThePitt() {
