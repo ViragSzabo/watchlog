@@ -1,76 +1,99 @@
 #player-matches {
-    margin: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+    display: none;
+    background-color: #fcfbf7; /* soft cream from tbody odd rows */
+    border: 1px solid #7a9a39; /* olive green border */
+    margin: 20px auto 0 auto;
+    padding: 20px 25px;
+    border-radius: 10px;
+    max-width: 700px;
+    box-shadow: 0 4px 12px rgba(122, 154, 57, 0.15); /* olive shadow */
+    font-family: 'Nanum Gothic', sans-serif;
+    color: #4b4237; /* warm dark brown text */
+}
+
+#player-matches h3 {
+    font-size: 24px;
+    color: #556b2f; /* dark olive green */
+    margin-bottom: 20px;
+    font-weight: 600;
+    text-align: center;
 }
 
 .match {
-    background: linear-gradient(145deg, #e6f1ff, #c7e0f0);
-    border: 2px solid #ddd;
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #f4f1e9; /* soft cream */
+    border: 1.5px solid #7a9a39; /* olive green border */
+    border-radius: 10px;
+    padding: 20px 25px;
+    margin-bottom: 18px;
+    box-shadow: 0 2px 6px rgba(122, 154, 57, 0.15); /* olive shadow */
+    color: #4b4237; /* warm dark brown text */
     font-size: 16px;
-    line-height: 1.5;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    cursor: default;
+    user-select: none;
 }
 
 .match:hover {
-    transform: scale(1.02);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 20px rgba(122, 154, 57, 0.3);
+    transform: translateY(-2px);
 }
 
 .match .result {
-    font-size: 16px;
-    margin-top: 10px;
+    color: #556b2f; /* dark olive green */
+    font-weight: 600;
 }
 
 .match strong {
-    font-weight: bold;
-    color: #007BFF;
+    color: #3b4a1a; /* deeper moss green */
 }
 
 .winner {
-    color: #28a745;
-    font-weight: bold;
+    color: #8fbc8f; /* softer green for wins */
+    font-weight: 700;
 }
 
 .draw {
-    color: #ffc107;
-    font-weight: bold;
+    color: #d9a441; /* muted gold for draws */
+    font-weight: 700;
 }
 
 .match .skills {
-    margin-top: 15px;
+    margin-top: 18px;
     font-size: 14px;
     display: flex;
     justify-content: space-between;
-    font-weight: normal;
-    color: #555;
+    color: #666;
+    font-weight: 400;
 }
 
 .match .skills span {
     display: inline-block;
-    width: 45%;
+    width: 48%;
 }
 
 .skills ul {
-    list-style-type: none;
-    padding: 0;
+    list-style-type: disc;
+    padding-left: 18px;
     margin: 0;
+    color: #555;
 }
 
-#player-matches {
-    display: none;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    margin-top: 20px;
-    padding: 15px;
-    border-radius: 5px;
-}
-
-#player-matches h3 {
-    font-size: 22px;
-    margin-bottom: 15px;
+/* Optional: responsive tweaks */
+@media (max-width: 480px) {
+    #player-matches {
+        padding: 15px 18px;
+        margin: 15px 10px 0 10px;
+    }
+    .match {
+        padding: 16px 18px;
+        font-size: 15px;
+        margin-bottom: 14px;
+    }
+    .match .skills {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .match .skills span {
+        width: 100%;
+    }
 }

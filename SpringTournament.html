@@ -18,8 +18,7 @@
     <button id="switch-to-sprint">Switch to Sprint Tournament</button>
     <button id="switch-to-summer">Switch to Summer Tournament</button>
 </div>
-<section id="final-standings">
-    <h2>📊 Final Standings</h2>
+<section id="standings-container">
     <table id="standings">
         <thead>
         <tr>
@@ -28,12 +27,15 @@
         </tr>
         </thead>
         <tbody>
-            </div>
+        <!-- Only table rows here -->
         </tbody>
     </table>
 </section>
+
+<!-- Put these outside the table to fix invalid nesting -->
 <section id="player-matches" style="display:none; max-width: 600px; margin: 20px auto; text-align: left;"></section>
 <section id="player-stats" style="display:none; max-width: 600px; margin: 20px auto; text-align: left;"></section>
+
 <script src="src/main/java/com/java/mangwathon/page/script.js"></script>
 </body>
 </html>
