@@ -9,7 +9,10 @@ h3 {
 }
 
 #final-standings {
-    margin: 20px;
+    max-width: 600px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 table {
